@@ -7,6 +7,10 @@ export default function RepoList() {
 
     const { repos, loading, page, getRepositories } = useGitHubRepository();
 
+    function handleClick() {
+        getRepositories(page, 10);
+    }
+
     return (
         <>
             <header className="bg-dark text-white py-4 mb-3">
@@ -17,10 +21,13 @@ export default function RepoList() {
             <main>
                 <Container>
                     <Row>
-                        {repos.map(repo => (
-                            <RepoCard key={repo.id} {...repo} />
+                        {repos.map(repository => (
+                            <RepoCard key={repository.id} {...repository} />
                         ))}
-                        <LoadMoreButton {...{loading, page, getRepositories}} />
+                        <LoadMoreButton
+                            loading
+                            handleClick={handleClick}
+                        />
                     </Row>
                 </Container>
             </main>

@@ -10,7 +10,7 @@ export default function RepoCard(repository) {
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>{description}</Card.Text>
-                    <Card.Link href={htmlUrl}>Ver Repositório</Card.Link>
+                    <Card.Link href={htmlUrl} target="_blank">Ver Repositório</Card.Link>
                 </Card.Body>
             </Card>
         </Col>

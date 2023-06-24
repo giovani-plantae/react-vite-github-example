@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export default function useGitHubRepository() {
 
-    const DEBOUNCE_DELAY = 100;
+    const DEBOUNCE_DELAY = 300;
 
     const [repos, setRepos] = useState([]);
     const [page, setPage] = useState(1);
