@@ -24,13 +24,13 @@ export default function useGitHubRepository() {
 
         setLoading(true);
 
-        const apiUrl = `https://api.github.com/users/github/repos?page=${page}&per_page=${perPage}`;
+        const apiUrl = `https://api.github.com/search/repositories?q=stars:%3E0&sort=id&order=asc&page=${page}&per_page=${perPage}`;
         const abortController = new AbortController();
 
         fetch(apiUrl, {signal: abortController.signal})
             .then(res => res.json())
             .then(res => {
-                setRepos(prevRepos => [...prevRepos, ...res]);
+                setRepos(prevRepos => [...prevRepos, ...res.items]);
                 setPage(prevPage => prevPage + 1);
                 setLoading(false);
             })
